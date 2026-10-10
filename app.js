@@ -29,18 +29,21 @@
     status.classList.remove('error');
   });
 
+  // Get the base path for GitHub Pages (handles both repo-based and custom domain deployments)
+  const basePath = window.location.pathname.endsWith('/muralprints/') ? '/muralprints' : '';
+
   const clips = {
-    wall: { id: 'videos/Car.mp4', title: 'Wall printing — a new perspective' },
-    floor: { id: 'videos/Floral.mp4', title: 'Floor printing — make every step count' },
-    canvas: { id: 'videos/Horses.mp4', title: 'Canvas printing — art made personal' },
-    custom: { id: 'videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
+    wall: { id: basePath + '/videos/Car.mp4', title: 'Wall printing — a new perspective' },
+    floor: { id: basePath + '/videos/Floral.mp4', title: 'Floor printing — make every step count' },
+    canvas: { id: basePath + '/videos/Horses.mp4', title: 'Canvas printing — art made personal' },
+    custom: { id: basePath + '/videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
   };
   const dialog = document.querySelector('#video-dialog');
   document.querySelectorAll('.play-button').forEach(button => button.addEventListener('click', () => {
     const clip = clips[button.dataset.video];
     const videoFrame = document.querySelector('#video-frame');
     document.querySelector('#video-caption').textContent = clip.title;
-    if (clip.id.endsWith('.mp4')) {
+    if (clip.id.endsWith('.mp4') || clip.id.endsWith('.MP4')) {
       videoFrame.innerHTML = `<video src="${clip.id}" controls autoplay playsinline></video>`;
     } else {
       videoFrame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&rel=0" title="${clip.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
@@ -74,12 +77,12 @@
         requirements: values.get('requirements').trim()
       });
       if (error) throw error;
-      status.textContent = 'Your idea is in our inbox. We’ll be in touch soon!';
+      status.textContent = 'Your idea is in our inbox. We'll be in touch soon!';
       form.reset();
       fileName.textContent = 'Add an image';
     } catch (error) {
       console.error('Inquiry submission failed:', error);
-      status.textContent = 'We couldn’t send that just now. Please try again in a moment.';
+      status.textContent = 'We couldn't send that just now. Please try again in a moment.';
       status.classList.add('error');
     } finally {
       submit.disabled = false;
