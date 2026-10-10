@@ -1,20 +1,22 @@
-/* Video modal responsive styles */
+/* Video modal - responsive, polished design */
 .video-dialog {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: min(90vw, 1100px);
+  max-height: min(85vh, 700px);
   width: 100%;
   height: auto;
   padding: 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #000;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .video-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
 }
 
 #video-frame {
@@ -27,6 +29,7 @@
   align-items: center;
   justify-content: center;
   background: #000;
+  position: relative;
 }
 
 #video-frame video,
@@ -40,65 +43,71 @@
 #video-caption {
   color: #fff;
   font-size: 14px;
-  padding: 8px 12px;
+  padding: 10px 16px;
   margin: 0;
-  background: #1a1a1a;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
   text-align: center;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
 }
 
 .dialog-close {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 10;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.15);
-  border: none;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: #fff;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 300;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: all 0.25s ease;
   padding: 0;
+  line-height: 1;
 }
 
 .dialog-close:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.dialog-close:active {
+  transform: scale(0.95);
 }
 
 /* Tablet and desktop */
 @media (min-width: 769px) {
   .video-dialog {
-    max-width: 85vw;
-    max-height: 85vh;
+    animation: slideIn 0.3s ease-out;
   }
   
   #video-frame {
-    aspect-ratio: 16 / 9;
-    min-height: 400px;
+    min-height: 450px;
   }
   
   #video-caption {
-    padding: 10px 14px;
-    font-size: 14px;
+    padding: 12px 18px;
+    font-size: 15px;
   }
   
   .dialog-close {
-    width: 40px;
-    height: 40px;
-    top: 10px;
-    right: 10px;
-    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
   }
 }
 
-/* Mobile optimizations - taller video area */
+/* Mobile optimizations */
 @media (max-width: 768px) {
   .video-dialog {
     max-width: 100vw;
@@ -107,61 +116,95 @@
     height: 100vh;
     border-radius: 0;
     margin: 0;
+    box-shadow: none;
+    animation: slideUpMobile 0.3s ease-out;
   }
   
   #video-frame {
     aspect-ratio: auto;
-    height: calc(100vh - 45px);
-    min-height: calc(100vh - 45px);
+    height: calc(100vh - 48px);
+    min-height: calc(100vh - 48px);
+    border-radius: 0;
   }
   
   #video-caption {
     font-size: 13px;
-    padding: 7px 10px;
-    max-height: 45px;
-    overflow: hidden;
+    padding: 8px 12px;
+    max-height: 48px;
   }
   
   .dialog-close {
     width: 40px;
     height: 40px;
     font-size: 26px;
-    top: 6px;
-    right: 6px;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .dialog-close:hover {
+    background: rgba(255, 255, 255, 0.25);
   }
 }
 
-/* Small phone screens */
+/* Small phones */
 @media (max-width: 480px) {
   #video-frame {
-    height: calc(100vh - 42px);
-    min-height: calc(100vh - 42px);
+    height: calc(100vh - 44px);
+    min-height: calc(100vh - 44px);
   }
   
   #video-caption {
     font-size: 12px;
-    padding: 6px 8px;
-    max-height: 42px;
+    padding: 6px 10px;
+    max-height: 44px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   .dialog-close {
     width: 36px;
     height: 36px;
-    font-size: 22px;
-    top: 4px;
-    right: 4px;
+    font-size: 24px;
+    top: 6px;
+    right: 6px;
   }
 }
 
-/* Very small screens - maximize video */
+/* Short screens (landscape mode) */
 @media (max-height: 600px) {
   #video-frame {
     height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
   }
   
   #video-caption {
-    padding: 5px 8px;
+    padding: 5px 10px;
     font-size: 11px;
     max-height: 40px;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
