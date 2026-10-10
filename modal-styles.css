@@ -19,6 +19,17 @@
   backdrop-filter: blur(4px);
 }
 
+.video-dialog[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+html:has(.video-dialog[open]) {
+  overflow: hidden;
+}
+
 #video-frame {
   flex: 1;
   width: 100%;
@@ -118,6 +129,9 @@
     margin: 0;
     box-shadow: none;
     animation: slideUpMobile 0.3s ease-out;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
   }
   
   #video-frame {
@@ -190,11 +204,11 @@
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translate(-50%, -50%) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
