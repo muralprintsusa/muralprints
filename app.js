@@ -29,12 +29,11 @@
     status.classList.remove('error');
   });
 
-  const VIDEO_ID = 'YOUR_YOUTUBE_VIDEO_ID';
   const clips = {
-    wall: { id: VIDEO_ID, title: 'Wall printing — a new perspective' },
-    floor: { id: VIDEO_ID, title: 'Floor printing — make every step count' },
-    canvas: { id: VIDEO_ID, title: 'Canvas printing — art made personal' },
-    custom: { id: VIDEO_ID, title: 'Custom printing — your image, your way' }
+    wall: { id: 'WALL_VIDEO_ID', title: 'Wall printing — a new perspective' },
+    floor: { id: 'FLOOR_VIDEO_ID', title: 'Floor printing — make every step count' },
+    canvas: { id: 'CANVAS_VIDEO_ID', title: 'Canvas printing — art made personal' },
+    custom: { id: 'CUSTOM_VIDEO_ID', title: 'Custom printing — your image, your way' }
   };
   const dialog = document.querySelector('#video-dialog');
   document.querySelectorAll('.play-button').forEach(button => button.addEventListener('click', () => {
