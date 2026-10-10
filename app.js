@@ -30,16 +30,21 @@
   });
 
   const clips = {
-    wall: { id: 'WALL_VIDEO_ID', title: 'Wall printing — a new perspective' },
-    floor: { id: 'FLOOR_VIDEO_ID', title: 'Floor printing — make every step count' },
-    canvas: { id: 'CANVAS_VIDEO_ID', title: 'Canvas printing — art made personal' },
-    custom: { id: 'CUSTOM_VIDEO_ID', title: 'Custom printing — your image, your way' }
+    wall: { id: 'videos/car.mp4', title: 'Wall printing — a new perspective' },
+    floor: { id: 'videos/floral.mp4', title: 'Floor printing — make every step count' },
+    canvas: { id: 'videos/horses.mp4', title: 'Canvas printing — art made personal' },
+    custom: { id: 'videos/Spiderman.mp4', title: 'Custom printing — your image, your way' }
   };
   const dialog = document.querySelector('#video-dialog');
   document.querySelectorAll('.play-button').forEach(button => button.addEventListener('click', () => {
     const clip = clips[button.dataset.video];
+    const videoFrame = document.querySelector('#video-frame');
     document.querySelector('#video-caption').textContent = clip.title;
-    document.querySelector('#video-frame').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&rel=0" title="${clip.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    if (clip.id.endsWith('.mp4')) {
+      videoFrame.innerHTML = `<video src="${clip.id}" controls autoplay playsinline></video>`;
+    } else {
+      videoFrame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${clip.id}?autoplay=1&rel=0" title="${clip.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    }
     dialog.showModal();
   }));
   const closeDialog = () => { dialog.close(); document.querySelector('#video-frame').innerHTML = ''; };
