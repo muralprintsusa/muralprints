@@ -30,10 +30,10 @@
   });
 
   const clips = {
-    wall: { id: 'videos/car.mp4', title: 'Wall printing — a new perspective' },
-    floor: { id: 'videos/floral.mp4', title: 'Floor printing — make every step count' },
-    canvas: { id: 'videos/horses.mp4', title: 'Canvas printing — art made personal' },
-    custom: { id: 'videos/Spiderman.mp4', title: 'Custom printing — your image, your way' }
+    wall: { id: 'videos/Car.mp4', title: 'Wall printing — a new perspective' },
+    floor: { id: 'videos/Floral.mp4', title: 'Floor printing — make every step count' },
+    canvas: { id: 'videos/Horses.mp4', title: 'Canvas printing — art made personal' },
+    custom: { id: 'videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
   };
   const dialog = document.querySelector('#video-dialog');
   document.querySelectorAll('.play-button').forEach(button => button.addEventListener('click', () => {
