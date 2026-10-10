@@ -29,14 +29,11 @@
     status.classList.remove('error');
   });
 
-  // Get the base path for GitHub Pages (handles both repo-based and custom domain deployments)
-  const basePath = window.location.pathname.endsWith('/muralprints/') ? '/muralprints' : '';
-
   const clips = {
-    wall: { id: basePath + '/videos/Car.mp4', title: 'Wall printing — a new perspective' },
-    floor: { id: basePath + '/videos/Floral.mp4', title: 'Floor printing — make every step count' },
-    canvas: { id: basePath + '/videos/Horses.mp4', title: 'Canvas printing — art made personal' },
-    custom: { id: basePath + '/videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
+    wall: { id: 'videos/Car.mp4', title: 'Wall printing — a new perspective' },
+    floor: { id: 'videos/Floral.mp4', title: 'Floor printing — make every step count' },
+    canvas: { id: 'videos/Horses.mp4', title: 'Canvas printing — art made personal' },
+    custom: { id: 'videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
   };
   const dialog = document.querySelector('#video-dialog');
   document.querySelectorAll('.play-button').forEach(button => button.addEventListener('click', () => {
