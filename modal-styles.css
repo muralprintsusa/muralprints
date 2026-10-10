@@ -3,7 +3,7 @@
   max-width: min(90vw, 1100px);
   max-height: min(85vh, 700px);
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 0;
   border: none;
   border-radius: 12px;
@@ -24,16 +24,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 90vh;
 }
 
 html:has(.video-dialog[open]) {
   overflow: hidden;
 }
 
+body:has(.video-dialog[open]) {
+  overflow: hidden;
+}
+
 #video-frame {
   flex: 1;
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   display: flex;
@@ -61,6 +66,7 @@ html:has(.video-dialog[open]) {
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.3px;
+  flex-shrink: 0;
 }
 
 .dialog-close {
