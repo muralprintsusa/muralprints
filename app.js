@@ -45,8 +45,8 @@
   }
 
   const clips = {
-    wall: { id: 'videos/Car.mp4', title: 'Wall printing — a new perspective' },
-    floor: { id: 'videos/Floral.mp4', title: 'Floor printing — make every step count' },
+    wall: { id: 'videos/Floral.mp4', title: 'Wall printing — a new perspective' },
+    floor: { id: 'videos/Floral_Floor.mp4', title: 'Floor printing — make every step count' },
     canvas: { id: 'videos/Horses.mp4', title: 'Canvas printing — art made personal' },
     custom: { id: 'videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
   };
