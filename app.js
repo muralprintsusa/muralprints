@@ -4,9 +4,6 @@
   const fileInput = document.querySelector('#image-file');
   const fileName = document.querySelector('#file-name');
   const menu = document.querySelector('.menu-toggle');
-  const dialog = document.querySelector('#video-dialog');
-  const videoFrame = document.querySelector('#video-frame');
-  const videoCaption = document.querySelector('#video-caption');
 
   if (document.querySelector('#year')) {
     document.querySelector('#year').textContent = new Date().getFullYear();
@@ -41,58 +38,6 @@
       fileName.textContent = file ? file.name : 'Add an image';
       status.textContent = '';
       status.classList.remove('error');
-    });
-  }
-
-  const clips = {
-    wall: { id: 'videos/Floral.mp4', title: 'Wall printing — a new perspective' },
-    floor: { id: 'videos/Floral_Floor.mp4', title: 'Floor printing — make every step count' },
-    canvas: { id: 'videos/Horses.mp4', title: 'Canvas printing — art made personal' },
-    custom: { id: 'videos/Spiderman.MP4', title: 'Custom printing — your image, your way' }
-  };
-
-  const openDialog = () => {
-    if (!dialog) return;
-    if (typeof dialog.showModal === 'function') {
-      dialog.showModal();
-    } else {
-      dialog.setAttribute('open', 'open');
-    }
-  };
-
-  const closeDialog = () => {
-    if (!dialog) return;
-    if (typeof dialog.close === 'function') {
-      dialog.close();
-    }
-    dialog.removeAttribute('open');
-    if (videoFrame) videoFrame.innerHTML = '';
-  };
-
-  document.querySelectorAll('.play-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const clip = clips[button.dataset.video];
-      if (!clip || !videoFrame || !videoCaption) return;
-
-      videoCaption.textContent = clip.title;
-
-      if (clip.id.toLowerCase().endsWith('.mp4')) {
-        videoFrame.innerHTML = `<video src="${clip.id}" controls autoplay playsinline></video>`;
-      } else {
-        videoFrame.innerHTML = '';
-      }
-
-      openDialog();
-    });
-  });
-
-  if (document.querySelector('.dialog-close')) {
-    document.querySelector('.dialog-close').addEventListener('click', closeDialog);
-  }
-
-  if (dialog) {
-    dialog.addEventListener('click', e => {
-      if (e.target === dialog) closeDialog();
     });
   }
 

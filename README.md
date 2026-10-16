@@ -19,4 +19,4 @@ The form currently saves name, phone, email and project requirements. It allows 
 
 ## Content notes
 
-The service photographs are illustrative stock images loaded from Unsplash. The four video buttons currently show a sample YouTube clip as a working player example; replace the video IDs in `app.js` with studio footage before launch. Google Fonts, the Supabase client library and photos/videos are loaded from their respective CDNs, so internet access is needed for those assets.
+The service cards link to dedicated, crawlable video watch pages in `videos/`. The video pages include visible HTML5 players, stable thumbnail images and `VideoObject` metadata; `sitemap.xml` lists each watch page and video file. After deploying changes, resubmit the sitemap in Google Search Console and use URL Inspection to request indexing for each video page. Google controls whether and when a video is indexed; discovery and structured data do not guarantee video results. Google Fonts, the Supabase client library and photos/videos are loaded from external sources, so internet access is needed for those assets.

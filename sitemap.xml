@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://mural-prints.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mural-prints.com/videos/wall-printing.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://mural-prints.com/images/ContemporaryWallMural.jpg</video:thumbnail_loc>
+      <video:title>Wall printing — a new perspective</video:title>
+      <video:description>Watch custom artwork being printed directly onto an interior wall by Mural Prints.</video:description>
+      <video:content_loc>https://mural-prints.com/videos/Floral.mp4</video:content_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://mural-prints.com/videos/floor-printing.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://mural-prints.com/images/ModernResidentialFloorDesign.jpg</video:thumbnail_loc>
+      <video:title>Floor printing — make every step count</video:title>
+      <video:description>Watch a custom floor design printed by Mural Prints.</video:description>
+      <video:content_loc>https://mural-prints.com/videos/Floral_Floor.mp4</video:content_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://mural-prints.com/videos/canvas-printing.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://mural-prints.com/images/ExpressiveCanvasArtwork.jpg</video:thumbnail_loc>
+      <video:title>Canvas printing — art made personal</video:title>
+      <video:description>Watch personalized artwork printed on canvas by Mural Prints.</video:description>
+      <video:content_loc>https://mural-prints.com/videos/Horses.mp4</video:content_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://mural-prints.com/videos/custom-image-printing.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://mural-prints.com/images/ColorfulAbstractDesign.jpg</video:thumbnail_loc>
+      <video:title>Custom printing — your image, your way</video:title>
+      <video:description>Watch customer supplied artwork brought to life through custom printing by Mural Prints.</video:description>
+      <video:content_loc>https://mural-prints.com/videos/Spiderman.MP4</video:content_loc>
+    </video:video>
   </url>
 </urlset>
